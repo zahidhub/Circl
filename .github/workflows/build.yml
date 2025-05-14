@@ -20,18 +20,18 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [22.x]
        
 
     steps:
-    - name: Checkout code
+    - name: Checkout
       uses: actions/checkout@v4
 
     - name: Create .env file
       run: |
         cat <<EOF > .env
         NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
-        CLERK_API_CALL=${{ secrets.CLERK_API_CALL }}
+        CLERK_SECRET_KEY=${{ secrets.CLERK_API_CALL }}
         EOF
 
     - name: Use Node.js ${{ matrix.node-version }}
