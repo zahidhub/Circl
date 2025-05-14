@@ -27,6 +27,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Create .env file
+      run: |
+        cat <<EOF > .env
+        CLERK_API_CALL=${{ secrets.CLERK_API_CALL }}
+        EOF
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
