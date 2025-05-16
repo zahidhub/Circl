@@ -32,6 +32,7 @@ jobs:
         cat <<EOF > .env
         NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
         CLERK_SECRET_KEY=${{ secrets.CLERK_API_CALL }}
+        DATABASE_URL=${{ secrets.DATABASE_URL}}
         EOF
 
     - name: Use Node.js ${{ matrix.node-version }}
